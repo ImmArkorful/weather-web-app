@@ -25,7 +25,7 @@ weatherForm.addEventListener('submit', (e) => {
 
 $location.addEventListener('click', (e) => {
   e.preventDefault();
-
+  $location.setAttribute('disabled', 'disabled');
   if (!navigator.geolocation) {
     return alert('Your browser does not support the geolocation');
   }
@@ -53,6 +53,7 @@ $location.addEventListener('click', (e) => {
           });
         }
       );
+      $location.removeAttribute('disabled');
     },
     (error) => {
       console.log(error);
